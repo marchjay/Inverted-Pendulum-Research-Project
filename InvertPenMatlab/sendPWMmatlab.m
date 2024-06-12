@@ -2,6 +2,11 @@
 comPort = 'COM5'; % Change this to your actual COM port
 baudRate = 9600;  % Make sure this matches the baud rate in your Arduino code
 
+% Initialize PWM Pin 
+% a = arduino("COM5", "Uno");
+% pwmPin = 'D9';
+% configurePin(a, pwmPin, 'PWM');
+
 % Create a serial port object
 arduinoSerial = serialport(comPort, baudRate);
 
@@ -12,25 +17,32 @@ configureTerminator(arduinoSerial, "CR/LF"); % Configure terminator if needed
 try
     while true
     
-    % Read the first line (gyrAngle)
+    
+    % % Read the first line (gyrAngle)
     gyrAngleLine = readline(arduinoSerial);
     gyrAngle = str2double(gyrAngleLine);
     disp(gyrAngleLine);
-    
-    % Read the second line (posDist)
+    % 
+    % % Read the second line (posDist)
     posDistLine = readline(arduinoSerial);
     posDist = str2double(posDistLine);
     disp(posDistLine);
-
+    % 
     pwmValue = readline(arduinoSerial);
     disp(pwmValue);
-    
-    % Process data
-    % Output a PWM value according to gyrAngle value
+    % 
+    % % Process data
+    % % Output a PWM value according to gyrAngle value
     result = intpolCalibration(gyrAngle, 30, 0, -30, 255, 127.5, 0);
+    result = num2str(result);
     disp(result);
+    % 
+    % % writePWMDutyCycle(a, pwmPin, result);
+    % 
+    writeline(arduinoSerial, result);
+
+    pause(0.1);
     % write(arduinoSerial, result, "double");
-    fprintf(arduinoSerial, '%f\n', result);
     end
 
 catch ME

@@ -38,6 +38,8 @@ float gyrPWM;
 int PWMB = 9;
 int BIN1 = 8;
 int BIN2 = 10;
+// Serial Monitor Variable
+String receivedData;
 
 // Function Declaration:
 float intpolCalibration(int x, float x0, float x1, float x2, float y0, float y1, float y2);
@@ -46,6 +48,7 @@ void onlineCalibration();
 void myISR();
 void readADC_Gyro();
 void readADC_Pos();
+float readSerial();
 
 
 // Function Definitions:
@@ -170,6 +173,11 @@ void readADC_Pos() {
   posADC = ads1015.readADC_SingleEnded(3);
 }
 
+float readSerial() {
+  receivedData = Serial.readStringUntil('\n');
+  gyrPWM = receivedData.toFloat();
+}
+
 void setup() {
   // Setup Code
 
@@ -223,9 +231,11 @@ void setup() {
 void loop() {
   // Loop Code
 
-  digitalWrite(BIN1, LOW);
-  digitalWrite(BIN2, HIGH);
-  analogWrite(PWMB, 255);
+  //////// PWM ////////
+  // readSerial();
+  // digitalWrite(BIN1, LOW);
+  // digitalWrite(BIN2, HIGH);
+  // analogWrite(PWMB, 255);
 
   //////// ONLINE CALIBRATION ////////
   // 1. Use switch to enter calibration mode (interupt program) (use light to show that in calibration mode)

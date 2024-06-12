@@ -10,6 +10,8 @@ void setup() {
 
 void loop() {
 
+    
+
     Serial.println(gyrAngle);
     Serial.println(posDist);
     Serial.println(pwmValue);

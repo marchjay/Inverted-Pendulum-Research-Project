@@ -5,8 +5,6 @@
 #include <Adafruit_ADS1X15.h>
 #include <SparkFun_TB6612.h>
 
-
-
 //////// VARIABLES AND DECLARATIONS ////////
 
 // Gyro Potentiometer Data Points
@@ -41,6 +39,11 @@ int BIN1 = 8;
 int BIN2 = 10;
 // Serial Monitor Variable
 String receivedData;
+
+/// TEST ///
+float testPWM;
+float gyrValTEST = 10;
+
 
 // Function Declaration:
 float intpolCalibration(int x, float x0, float x1, float x2, float y0, float y1, float y2);
@@ -176,7 +179,8 @@ void readADC_Pos() {
 
 float readSerial() {
   receivedData = Serial.readStringUntil('\n');
-  gyrPWM = receivedData.toFloat();
+  testPWM = receivedData.toFloat();
+  OCR1A = testPWM;
 }
 
 void setup() {
@@ -184,7 +188,7 @@ void setup() {
 
   // Start Serial Monitor
   Serial.begin(9600);
-  Serial.println("Hello World!");
+  // Serial.println("Hello World!");
   
   // Initialize ADS1015 
   ads1015.begin();
@@ -197,6 +201,9 @@ void setup() {
   pinMode(leftPos, INPUT); // Pin D3 used for left position calibration button
   pinMode(middlePos, INPUT); // Pin D4 used for middle position calibration button
   pinMode(rightPos, INPUT); // Pin D5 used for right position calibration button
+
+  /// TEST ///
+  pinMode(10, OUTPUT);
 
   //////// MOTOR DRIVER ////////
   pinMode(PWMB, OUTPUT);
@@ -225,7 +232,7 @@ void setup() {
   ICR1 = 199;  // This sets the frequency to 10kHz
 
   // Set the initial duty cycle
-  OCR1A = gyrPWM;  
+  OCR1A = 0;  
 
 }
 
@@ -233,11 +240,8 @@ void loop() {
   // Loop Code
 
   //////// PWM ////////
-  // readSerial();
-  // digitalWrite(BIN1, LOW);
-  // digitalWrite(BIN2, HIGH);
-  // analogWrite(PWMB, 255);
-
+  readSerial();
+  Serial.println(gyrValTEST);
   //////// ONLINE CALIBRATION ////////
   // 1. Use switch to enter calibration mode (interupt program) (use light to show that in calibration mode)
   // 2. Wait until one of the position buttons are pressed
@@ -256,8 +260,8 @@ void loop() {
   //////// ADC ////////
 
   // ADS1015 ADC reading for Gyro Potentiometer
-  readADC_Gyro();
-  readADC_Pos();
+  // readADC_Gyro();
+  // readADC_Pos();
   // float gyrVolt = ads1015.computeVolts(gyrADC);
   // float posVolt = ads1015.computeVolts(posADC);
 
@@ -272,17 +276,19 @@ void loop() {
 
 
   //////// OUTPUT SERIAL MONITOR ////////
-  Serial.println("----------------------------------");
-  Serial.print("Gyro ADC: ");
-  Serial.print(gyrADC);
-  Serial.print(", ");
-  Serial.print("Angle: ");
-  Serial.println(gyrAngle);
-  Serial.print("Position ADC: ");
-  Serial.print(posADC);
-  Serial.print(", ");
-  Serial.print("Distance: ");
-  Serial.println(posDist);
+  // Serial.println("----------------------------------");
+  // Serial.print("Gyro ADC: ");
+  // Serial.print(gyrADC);
+  // Serial.print(", ");
+  // Serial.print("Angle: ");
+  // Serial.println(gyrAngle);
+  // Serial.print("Position ADC: ");
+  // Serial.print(posADC);
+  // Serial.print(", ");
+  // Serial.print("Distance: ");
+  // Serial.println(posDist);
+
+
 
   //////// ARDUINO & PYTHON COMMUNICATION ////////
 
@@ -296,7 +302,7 @@ void loop() {
   // }
 
   // Delay read cycle by 1000 milliseconds
-  delay(50);
+  delay(1000);
 
 }
 

@@ -24,16 +24,16 @@ try
     disp(gyrAngleLine);
     % 
     % % Read the second line (posDist)
-    posDistLine = readline(arduinoSerial);
-    posDist = str2double(posDistLine);
-    disp(posDistLine);
+    % posDistLine = readline(arduinoSerial);
+    % posDist = str2double(posDistLine);
+    % disp(posDistLine);
     % 
-    pwmValue = readline(arduinoSerial);
-    disp(pwmValue);
+    % pwmValue = readline(arduinoSerial);
+    % disp(pwmValue);
     % 
     % % Process data
     % % Output a PWM value according to gyrAngle value
-    result = intpolCalibration(gyrAngle, 30, 0, -30, 255, 127.5, 0);
+    result = intpolCalibration(gyrAngle, 30, 0, -30, 199, 99.5, 0);
     result = num2str(result);
     disp(result);
     % 

@@ -15,23 +15,28 @@ try
     % Read the first line of the serial monitor: GyrAngle
     gyrAngleLine = readline(arduinoSerial);
     gyrAngle = str2double(gyrAngleLine);
-    % disp(gyrAngleLine);
-    
-    % Read the second line of the serial monitor: PosDist
+    disp(gyrAngleLine);
+    % 
+    % % Read the second line (posDist)
     % posDistLine = readline(arduinoSerial);
     % posDist = str2double(posDistLine);
     % disp(posDistLine);
-    
-    % Use the recorded gyrAngle to interpolate PWM value
+    % 
+    % pwmValue = readline(arduinoSerial);
+    % disp(pwmValue);
+    % 
+    % % Process data
+    % % Output a PWM value according to gyrAngle value
     result = intpolCalibration(gyrAngle, 30, 0, -30, 199, 99.5, 0);
     result = num2str(result);
-    % disp(result);
-
-    % Write the calculated result back to Serial Monitor for Arduino
+    disp(result);
+    % 
+    % % writePWMDutyCycle(a, pwmPin, result);
+    % 
     writeline(arduinoSerial, result);
 
     pause(0.1);
-
+    % write(arduinoSerial, result, "double");
     end
 
 catch ME

@@ -8,11 +8,11 @@
 //////// VARIABLES AND DECLARATIONS ////////
 
 // Gyro Potentiometer Data Points
-float f0 = 1845.10, f1 = 948.14, f2 = 22.60, g0 = 30, g1 = 0, g2 = -30;
+float f0 = 1845.78, f1 = 969.50, f2 = 53.46, g0 = 30, g1 = 0, g2 = -30;
 // Position Potentiometer Data Points
 float a0 = 1677, a1 = 942, a2 = 209, b0 = 100, b1 = 0, b2 = -100;
 // Gyro Potentiometer PWM Data Points
-float z0 = 1845.10, z1 = 948.14, z2 = 22.60, w0 = 199, w1 = 127.5, w2 = 0;
+float z0 = 1845.78, z1 = 969.50, z2 = 53.46, w0 = 199, w1 = 127.5, w2 = 0;
 // Position Potentiometer PWM Data Points
 float c0 = 1677, c1 = 942, c2 = 209, d0 = 199, d1 = 127.5, d2 = 0;
 // Online Calibration; Left, Middle, Right Button Pins
@@ -87,6 +87,9 @@ void onlineCalibration() {
         Serial.println("MEASURING LEFT POSITION ADC");
         Serial.println(gyrADC);
         if (index >= numSamples) {
+          digitalWrite(13, LOW);
+          delay(100);
+          digitalWrite(13,HIGH);
           index = 0;
           break;
         }
@@ -107,6 +110,9 @@ void onlineCalibration() {
         Serial.println("MEASURING MIDDLE POSITION ADC");
         Serial.println(gyrADC);
         if (index >= numSamples) {
+          digitalWrite(13, LOW);
+          delay(100);
+          digitalWrite(13,HIGH);
           index = 0;
           break;
         }
@@ -127,6 +133,9 @@ void onlineCalibration() {
         Serial.println("MEASURING RIGHT POSITION ADC");
         Serial.println(gyrADC);
         if (index >= numSamples) {
+          digitalWrite(13, LOW);
+          delay(100);
+          digitalWrite(13,HIGH);
           index = 0;
           break;
         }

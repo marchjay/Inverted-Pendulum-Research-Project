@@ -50,7 +50,7 @@ try
     gyrAngleLine = readline(arduinoSerial);
     gyrAngle = str2double(gyrAngleLine);
     gyrAngle = max(-30, min(30, gyrAngle));
-    % disp(gyrAngleLine);
+    disp(gyrAngleLine);
 
     % Update the text Angle
     set(angleText, 'String', sprintf('Current Angle: %.2f degrees', gyrAngle));
@@ -58,7 +58,7 @@ try
     % Read the second line of the serial monitor: PosDist
     posDistLine = readline(arduinoSerial);
     posDist = str2double(posDistLine);
-    % disp(posDistLine);
+    disp(posDistLine);
 
     % Calculate the control error
     error = desiredAngle - gyrAngle;
@@ -75,7 +75,7 @@ try
     pwmValue = Kp * error + Kd * errorDerivative;
     
     % Limit PWM output to the range [-199, 199]
-    pwmValue = max(-199, min(199, pwmValue));
+    pwmValue = max(-100, min(100, pwmValue));
     
     % Convert PWM value to an integer for Arduino communication
     pwmInt = round(pwmValue);

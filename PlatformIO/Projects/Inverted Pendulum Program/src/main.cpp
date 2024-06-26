@@ -5,18 +5,16 @@
 #include <Adafruit_ADS1X15.h>
 #include <SparkFun_TB6612.h>
 
-
-
 //////// VARIABLES AND DECLARATIONS ////////
 
 // Gyro Potentiometer Data Points
-float f0 = 1657, f1 = 814, f2 = 38, g0 = 30, g1 = 0, g2 = -30;
+float f0 = 1845.10, f1 = 948.14, f2 = 22.60, g0 = 30, g1 = 0, g2 = -30;
 // Position Potentiometer Data Points
-float a0 = 1674, a1 = 937, a2 = 207, b0 = 100, b1 = 0, b2 = -100;
+float a0 = 1677, a1 = 942, a2 = 209, b0 = 100, b1 = 0, b2 = -100;
 // Gyro Potentiometer PWM Data Points
-float z0 = 1657, z1 = 814, z2 = 38, w0 = 199, w1 = 127.5, w2 = 0;
+float z0 = 1845.10, z1 = 948.14, z2 = 22.60, w0 = 199, w1 = 127.5, w2 = 0;
 // Position Potentiometer PWM Data Points
-float c0 = 1674, c1 = 937, c2 = 207, d0 = 199, d1 = 127.5, d2 = 0;
+float c0 = 1677, c1 = 942, c2 = 209, d0 = 199, d1 = 127.5, d2 = 0;
 // Online Calibration; Left, Middle, Right Button Pins
 int leftPos = 3, middlePos = 4, rightPos = 5, index = 0;
 // Data Pool size for calibration
@@ -39,6 +37,8 @@ float gyrPWM;
 int PWMB = 9;
 int BIN1 = 8;
 int BIN2 = 10;
+int STBY = 11;
+int offsetB = 1;
 // Serial Monitor Variable
 String receivedData;
 
@@ -49,8 +49,8 @@ void onlineCalibration();
 void myISR();
 void readADC_Gyro();
 void readADC_Pos();
-float readSerial();
-
+void readSerial();
+Motor motor2 = Motor(BIN1, BIN2, PWMB, offsetB, STBY);
 
 // Function Definitions:
 float intpolCalibration(int x, float x0, float x1, float x2, float y0, float y1, float y2) {
@@ -161,22 +161,17 @@ void myISR() {
 }
 
 void readADC_Gyro() {
-  gyrADC = ads1015.readADC_SingleEnded(0);
-  gyrPWM = intpolCalibration(gyrADC, f0, f1, f2, w0, w1, w2);
-  if (gyrPWM <= 0) {
-    gyrPWM = 0;
-  }
-  Serial.println(gyrPWM);
-  OCR1A = gyrPWM;
+  gyrADC = ads1015.readADC_SingleEnded(1);
 }
 
 void readADC_Pos() {
-  posADC = ads1015.readADC_SingleEnded(3);
+  posADC = ads1015.readADC_SingleEnded(0);
 }
 
-float readSerial() {
+void readSerial() {
   receivedData = Serial.readStringUntil('\n');
   gyrPWM = receivedData.toFloat();
+  // OCR1A = gyrPWM;
 }
 
 void setup() {
@@ -184,7 +179,7 @@ void setup() {
 
   // Start Serial Monitor
   Serial.begin(9600);
-  Serial.println("Hello World!");
+  // Serial.println("Hello World!");
   
   // Initialize ADS1015 
   ads1015.begin();
@@ -206,45 +201,36 @@ void setup() {
   // Attach interrupt to Pin D2
   attachInterrupt(0, myISR, RISING);
 
-  // FAST PWM 
-  // Clear Timer1 control registers
-  TCCR1A = 0;
-  TCCR1B = 0;
+  // // FAST PWM 
+  // // Clear Timer1 control registers
+  // TCCR1A = 0;
+  // TCCR1B = 0;
 
-  // Set Timer1 to Fast PWM mode with ICR1 as top value
-  TCCR1A |= (1 << WGM11);
-  TCCR1B |= (1 << WGM12) | (1 << WGM13);
+  // // Set Timer1 to Fast PWM mode with ICR1 as top value
+  // TCCR1A |= (1 << WGM11);
+  // TCCR1B |= (1 << WGM12) | (1 << WGM13);
 
-  // Set non-inverting mode for PWM on OC1A (Pin 9)
-  TCCR1A |= (1 << COM1A1);
+  // // Set non-inverting mode for PWM on OC1A (Pin 9)
+  // TCCR1A |= (1 << COM1A1);
 
-  // Set the prescaler to 8 and start the timer
-  TCCR1B |= (1 << CS11);
+  // // Set the prescaler to 8 and start the timer
+  // TCCR1B |= (1 << CS11);
 
-  // Set the PWM frequency by setting the ICR1 value
-  ICR1 = 199;  // This sets the frequency to 10kHz
+  // // Set the PWM frequency by setting the ICR1 value
+  // ICR1 = 199;  // This sets the frequency to 10kHz
 
-  // Set the initial duty cycle
-  OCR1A = gyrPWM;  
+  // // Set the initial duty cycle
+  // OCR1A = 0;  
 
 }
 
 void loop() {
   // Loop Code
 
-  //////// PWM ////////
-  // readSerial();
-  // digitalWrite(BIN1, LOW);
-  // digitalWrite(BIN2, HIGH);
-  // analogWrite(PWMB, 255);
-
-  //////// ONLINE CALIBRATION ////////
-  // 1. Use switch to enter calibration mode (interupt program) (use light to show that in calibration mode)
-  // 2. Wait until one of the position buttons are pressed
-  // 3. Read Gyro ADC values for the respective that is pressed (for the duration that it is pressed)
-  // 4. Take average of all adc value and update calibration data points
-  // 5. Exit calibration mode
-  
+  // Read Serial Monitor and send the calculated PWM value to the motor
+  readSerial();
+  motor2.drive(gyrPWM);
+ 
   // Check if enableInt has been set
   if (enableInt) {
     onlineCalibration();
@@ -257,8 +243,10 @@ void loop() {
 
   // ADS1015 ADC reading for Gyro Potentiometer
   readADC_Gyro();
-  readADC_Pos();
   // float gyrVolt = ads1015.computeVolts(gyrADC);
+
+  // ADS1015 ADC reading for Position Potentiometer
+  readADC_Pos();
   // float posVolt = ads1015.computeVolts(posADC);
 
   // Calculate angle reading for Gyro Potentiometer using 3 point interpolation
@@ -267,21 +255,17 @@ void loop() {
   // Calculate distance reading for Position Potentiometer using 3 point interpolation
   float posDist = intpolCalibration(posADC, a0, a1, a2, b0, b1, b2);
 
-  //////// MOTOR CONTROL ////////
-  
-
-
   //////// OUTPUT SERIAL MONITOR ////////
-  Serial.println("----------------------------------");
-  Serial.print("Gyro ADC: ");
-  Serial.print(gyrADC);
-  Serial.print(", ");
-  Serial.print("Angle: ");
+  // Serial.println("----------------------------------");
+  // Serial.print("Gyro ADC: ");
+  // Serial.println(gyrADC);
+  // Serial.print(", ");
+  // Serial.print("Angle: ");
   Serial.println(gyrAngle);
-  Serial.print("Position ADC: ");
-  Serial.print(posADC);
-  Serial.print(", ");
-  Serial.print("Distance: ");
+  // Serial.print("Position ADC: ");
+  // Serial.print(posADC);
+  // Serial.print(", ");
+  // Serial.print("Distance: ");
   Serial.println(posDist);
 
   //////// ARDUINO & PYTHON COMMUNICATION ////////
@@ -296,7 +280,7 @@ void loop() {
   // }
 
   // Delay read cycle by 1000 milliseconds
-  delay(50);
+  delay(100);
 
 }
 

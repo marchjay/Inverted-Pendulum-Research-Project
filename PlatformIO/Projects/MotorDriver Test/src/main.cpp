@@ -27,17 +27,17 @@
 // Pins for all inputs, keep in mind the PWM defines must be on PWM pins
 // the default pins listed are the ones used on the Redbot (ROB-12097) with
 // the exception of STBY which the Redbot controls with a physical switch
-#define AIN1 2
+#define BIN1 8
 //#define BIN1 7
-#define AIN2 4
+#define BIN2 10
 //#define BIN2 8
-#define PWMA 5
+#define PWMB 9
 //#define PWMB 6
-#define STBY 9
+#define STBY 11
 
 // these constants are used to allow you to make your motor configuration 
 // line up with function names like forward.  Value can be 1 or -1
-const int offsetA = 1;
+const int offsetB = 1;
 // const int offsetB = 1;
 
 // Initializing motors.  The library will allow you to initialize as many
@@ -45,14 +45,14 @@ const int offsetA = 1;
 // that take 2 motors as arguements you can either write new functions or
 // call the function more than once.
 
-Motor motor2 = Motor(AIN1, AIN2, PWMA, offsetA, STBY);
+Motor motor2 = Motor(BIN1, BIN2, PWMB, offsetB, STBY);
 
 void setup()
 {
    Serial.begin(9600);
-   pinMode(AIN1, OUTPUT);
-   pinMode(AIN2, OUTPUT);
-   pinMode(PWMA, OUTPUT);
+   pinMode(BIN1, OUTPUT);
+   pinMode(BIN2, OUTPUT);
+   pinMode(PWMB, OUTPUT);
 
    
 }
@@ -66,7 +66,7 @@ void loop()
    //brake function which takes no arguements.
 
    //delay(1000);
-   // Serial.println("stop");
+   Serial.println("stop");
    // digitalWrite(AIN2, LOW);
    // digitalWrite(AIN1, LOW);
    // analogWrite(PWMA, 0);

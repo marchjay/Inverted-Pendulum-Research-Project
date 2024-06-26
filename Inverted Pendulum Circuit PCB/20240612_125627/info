@@ -1,0 +1,520 @@
+{
+  "uuid": "b625cee7b11ff531f6ac5e32a214268b",
+  "path": "Offline/Inverted Pendulum Circuit PCB",
+  "name": "Inverted Pendulum Circuit PCB",
+  "content": "",
+  "created_at": "2024-06-04 12:22:22",
+  "updated_at": "2024-06-12 12:56:27",
+  "stick": "",
+  "documents": [
+    {
+      "uuid": "4c6db416a8ed548d57e213cdbc4731e2",
+      "title": "Sheet_1",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "bfdcdc44a7ac4a3c9195688234e0b6c2": 6,
+        "b0248eb51e084227889f2cb84eab79c4": 13,
+        "24eeb2ceca08480b92b847b6a310acda": 2,
+        "00ef082505fc4fb190eecc552c946962": 4,
+        "5cbe824183374fac8e4c1ae848199ce3": 1,
+        "ad1d19430b7b4084aee100f1e9e9b8fd": 1,
+        "c6a2f7343d2d4b8fad66d4ffc5062e0f": 1,
+        "358e8ae828e348138e0b99bbd52a90ec": 5,
+        "2f5c8276f8d64010877a8d3bb97697b8": 1,
+        "f5b1d9403e49471cab43bc5a1bec336f": 4,
+        "a052559478a14ee2b9e3514bee4ff72d": 1,
+        "a9aa2b14f188405792fa87ac344499a4": 1,
+        "93b44d62463c4c9c82dd7108c8ee7d73": 1,
+        "404aa9221ff94de597b8734806e7c74f": 1
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "S.KF128-5.0-2P",
+          5,
+          "S.KF128-5.0-2P",
+          "+5VOLTS,+12VOLTS,-12VOLTS,MOTORA,MOTORB",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "Sayori Mori",
+            "spiceSymbolName": "S.KF128-5.0-2P",
+            "puuid": "8c85382f2ff643128215879405abe567",
+            "uuid": "358e8ae828e348138e0b99bbd52a90ec"
+          }
+        ],
+        [
+          "100nF",
+          2,
+          "RAD-0.2",
+          "C1,C2",
+          {
+            "Supplier Part": "",
+            "Supplier": "",
+            "Contributor": "LCEDA_Lib",
+            "spiceSymbolName": "C_0603_US",
+            "Manufacturer Part": "",
+            "puuid": "75844c5980bb4094beb1dc6c0a3a9856",
+            "uuid": "24eeb2ceca08480b92b847b6a310acda"
+          }
+        ],
+        [
+          "LED-0603_R",
+          1,
+          "LED-TH_BD3.0_RED",
+          "CALIBRATIONLED",
+          {
+            "Manufacturer": "EVERLIGHT(台湾亿光)",
+            "Manufacturer Part": "19-217/R6C-AL1M2VY/3T",
+            "Supplier Part": "C72044",
+            "Supplier": "LCSC",
+            "link": "",
+            "Contributor": "LCEDA_01",
+            "spiceSymbolName": "LED-0603_R",
+            "puuid": "bec79a4ea65a4f65ba290a03b598a762",
+            "uuid": "5cbe824183374fac8e4c1ae848199ce3"
+          }
+        ],
+        [
+          "K4-6×6_SMD",
+          4,
+          "KEY-TH_4P-L6.0-W6.0-P4.50-LS6.5",
+          "CALIBRATIONMODE,LEFTPOSITION,MIDDLEPOSITION,RIGHTPOSITION",
+          {
+            "Supplier Part": "C191626",
+            "Supplier": "LCSC",
+            "Manufacturer": "韩国韩荣",
+            "Manufacturer Part": "K2-6639SP-D4SC-04",
+            "Contributor": "LCEDA_Lib",
+            "spiceSymbolName": "K4-6×6_SMD",
+            "puuid": "557c105168d444a992e25584f55bcbb2",
+            "uuid": "00ef082505fc4fb190eecc552c946962"
+          }
+        ],
+        [
+          "HDR-F-2.54_1x6",
+          1,
+          "HDR-F-2.54_1X6",
+          "H7",
+          {
+            "Supplier Part": "C40877",
+            "Supplier": "LCSC",
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Contributor": "LCEDA_Lib",
+            "spiceSymbolName": "HDR-F-2.54_1x6",
+            "puuid": "e86d43893d914130bd34765c00ed5f63",
+            "uuid": "2f5c8276f8d64010877a8d3bb97697b8"
+          }
+        ],
+        [
+          "HDR-M-2.54_1x4",
+          4,
+          "HDR-M-2.54_1X4",
+          "J1,J3,J4,J5",
+          {
+            "Supplier Part": "C124378",
+            "Supplier": "LCSC",
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Contributor": "LCEDA_Lib",
+            "spiceSymbolName": "HDR-M-2.54_1x4",
+            "puuid": "282f7786cb6144d097ae00194c3e3fb3",
+            "uuid": "f5b1d9403e49471cab43bc5a1bec336f"
+          }
+        ],
+        [
+          "HDR-M-2.54_1x2",
+          1,
+          "HDR-M-2.54_1X2",
+          "J2",
+          {
+            "Supplier Part": "C124375",
+            "Supplier": "LCSC",
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Contributor": "LCEDA_Lib",
+            "spiceSymbolName": "HDR-M-2.54_1x2",
+            "puuid": "70aa5812f21f4991bf427395d51849f4",
+            "uuid": "a9aa2b14f188405792fa87ac344499a4"
+          }
+        ],
+        [
+          "HDR-M-2.54_1x5",
+          1,
+          "HDR-M-2.54_1X5",
+          "J6",
+          {
+            "Supplier Part": "C358687",
+            "Supplier": "LCSC",
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Contributor": "LCEDA_Lib",
+            "spiceSymbolName": "HDR-M-2.54_1x5",
+            "puuid": "108969f8d9834a9ea23bcec2d43a66e4",
+            "uuid": "a052559478a14ee2b9e3514bee4ff72d"
+          }
+        ],
+        [
+          "HDR-M-2.54_1x6",
+          1,
+          "HDR-M-2.54_1X6",
+          "J7",
+          {
+            "Supplier Part": "C190819",
+            "Supplier": "LCSC",
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Contributor": "LCEDA_Lib",
+            "spiceSymbolName": "HDR-M-2.54_1x6",
+            "puuid": "df3ca37cb13d499cb713e9aa6fdd0c7b",
+            "uuid": "93b44d62463c4c9c82dd7108c8ee7d73"
+          }
+        ],
+        [
+          "HDR-M-2.54_1x1",
+          1,
+          "HDR-M-2.54_1X1",
+          "J8",
+          {
+            "Supplier Part": "C81276",
+            "Supplier": "LCSC",
+            "Manufacturer Part": "",
+            "Contributor": "LCEDA_Lib",
+            "spiceSymbolName": "HDR-M-2.54_1x1",
+            "puuid": "19c77e72422b43b59c26b9fa67af5de4",
+            "uuid": "404aa9221ff94de597b8734806e7c74f"
+          }
+        ],
+        [
+          "10k",
+          8,
+          "R_AXIAL-0.4",
+          "R1,R2,R5,R6,R9,R10,R11,R12",
+          {
+            "Supplier Part": "",
+            "Supplier": "",
+            "Contributor": "LCEDA_Lib",
+            "spiceSymbolName": "R_0603_US",
+            "Manufacturer Part": "",
+            "puuid": "5905db98cde4487fbb177070aa85bbe1",
+            "uuid": "b0248eb51e084227889f2cb84eab79c4"
+          }
+        ],
+        [
+          "3k",
+          1,
+          "R_AXIAL-0.4",
+          "R3",
+          {
+            "Supplier Part": "",
+            "Supplier": "",
+            "Contributor": "LCEDA_Lib",
+            "spiceSymbolName": "R_0603_US",
+            "Manufacturer Part": "",
+            "puuid": "5905db98cde4487fbb177070aa85bbe1",
+            "uuid": "b0248eb51e084227889f2cb84eab79c4"
+          }
+        ],
+        [
+          "2k",
+          2,
+          "R_AXIAL-0.4",
+          "R4,R7",
+          {
+            "Supplier Part": "",
+            "Supplier": "",
+            "Contributor": "LCEDA_Lib",
+            "spiceSymbolName": "R_0603_US",
+            "Manufacturer Part": "",
+            "puuid": "5905db98cde4487fbb177070aa85bbe1",
+            "uuid": "b0248eb51e084227889f2cb84eab79c4"
+          }
+        ],
+        [
+          "9.1k",
+          1,
+          "R_AXIAL-0.4",
+          "R8",
+          {
+            "Supplier Part": "",
+            "Supplier": "",
+            "Contributor": "LCEDA_Lib",
+            "spiceSymbolName": "R_0603_US",
+            "Manufacturer Part": "",
+            "puuid": "5905db98cde4487fbb177070aa85bbe1",
+            "uuid": "b0248eb51e084227889f2cb84eab79c4"
+          }
+        ],
+        [
+          "220",
+          1,
+          "R_AXIAL-0.4",
+          "R13",
+          {
+            "Supplier Part": "",
+            "Supplier": "",
+            "Contributor": "LCEDA_Lib",
+            "spiceSymbolName": "R_0603_US",
+            "Manufacturer Part": "",
+            "puuid": "5905db98cde4487fbb177070aa85bbe1",
+            "uuid": "b0248eb51e084227889f2cb84eab79c4"
+          }
+        ],
+        [
+          "GyroPot Buffer",
+          1,
+          "CDIP-8_L10.3-W6.7-P2.54-LS7.6-BL",
+          "U1",
+          {
+            "Contributor": "LCSC",
+            "Supplier": "LCSC",
+            "Supplier Part": "C1346289",
+            "Manufacturer": "TI(德州仪器)",
+            "Manufacturer Part": "LM741J",
+            "JLCPCB Part Class": "Extended Part",
+            "spiceSymbolName": "LM741J",
+            "puuid": "e626fd9f488c475a91dd8fdafc2444d9",
+            "uuid": "bfdcdc44a7ac4a3c9195688234e0b6c2"
+          }
+        ],
+        [
+          "2V Voltage/Buffer",
+          1,
+          "CDIP-8_L10.3-W6.7-P2.54-LS7.6-BL",
+          "U2",
+          {
+            "Contributor": "LCSC",
+            "Supplier": "LCSC",
+            "Supplier Part": "C1346289",
+            "Manufacturer": "TI(德州仪器)",
+            "Manufacturer Part": "LM741J",
+            "JLCPCB Part Class": "Extended Part",
+            "spiceSymbolName": "LM741J",
+            "puuid": "e626fd9f488c475a91dd8fdafc2444d9",
+            "uuid": "bfdcdc44a7ac4a3c9195688234e0b6c2"
+          }
+        ],
+        [
+          "Unity Gain Differential Amp",
+          1,
+          "CDIP-8_L10.3-W6.7-P2.54-LS7.6-BL",
+          "U3",
+          {
+            "Contributor": "LCSC",
+            "Supplier": "LCSC",
+            "Supplier Part": "C1346289",
+            "Manufacturer": "TI(德州仪器)",
+            "Manufacturer Part": "LM741J",
+            "JLCPCB Part Class": "Extended Part",
+            "spiceSymbolName": "LM741J",
+            "puuid": "e626fd9f488c475a91dd8fdafc2444d9",
+            "uuid": "bfdcdc44a7ac4a3c9195688234e0b6c2"
+          }
+        ],
+        [
+          "Amplifier (Acl = 5)",
+          1,
+          "CDIP-8_L10.3-W6.7-P2.54-LS7.6-BL",
+          "U4",
+          {
+            "Contributor": "LCSC",
+            "Supplier": "LCSC",
+            "Supplier Part": "C1346289",
+            "Manufacturer": "TI(德州仪器)",
+            "Manufacturer Part": "LM741J",
+            "JLCPCB Part Class": "Extended Part",
+            "spiceSymbolName": "LM741J",
+            "puuid": "e626fd9f488c475a91dd8fdafc2444d9",
+            "uuid": "bfdcdc44a7ac4a3c9195688234e0b6c2"
+          }
+        ],
+        [
+          "GyroPot Signal Buffer",
+          1,
+          "CDIP-8_L10.3-W6.7-P2.54-LS7.6-BL",
+          "U5",
+          {
+            "Contributor": "LCSC",
+            "Supplier": "LCSC",
+            "Supplier Part": "C1346289",
+            "Manufacturer": "TI(德州仪器)",
+            "Manufacturer Part": "LM741J",
+            "JLCPCB Part Class": "Extended Part",
+            "spiceSymbolName": "LM741J",
+            "puuid": "e626fd9f488c475a91dd8fdafc2444d9",
+            "uuid": "bfdcdc44a7ac4a3c9195688234e0b6c2"
+          }
+        ],
+        [
+          "PosPot Signal Buffer",
+          1,
+          "CDIP-8_L10.3-W6.7-P2.54-LS7.6-BL",
+          "U6",
+          {
+            "Contributor": "LCSC",
+            "Supplier": "LCSC",
+            "Supplier Part": "C1346289",
+            "Manufacturer": "TI(德州仪器)",
+            "Manufacturer Part": "LM741J",
+            "JLCPCB Part Class": "Extended Part",
+            "spiceSymbolName": "LM741J",
+            "puuid": "e626fd9f488c475a91dd8fdafc2444d9",
+            "uuid": "bfdcdc44a7ac4a3c9195688234e0b6c2"
+          }
+        ],
+        [
+          "TB6612FNG",
+          1,
+          "TB6612FNG",
+          "U7",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "rsxrobots",
+            "spiceSymbolName": "TB6612FNG",
+            "puuid": "2b3335a937a249d49cfdbb3a231ac65e",
+            "uuid": "ad1d19430b7b4084aee100f1e9e9b8fd"
+          }
+        ],
+        [
+          "ADAFRUIT ADS1015 BREAKOUT FOOTPRINT",
+          1,
+          "ADAFRUIT ADS1015 BREAKOUT FOOTPRINT",
+          "U9",
+          {
+            "Manufacturer": "Adafruit",
+            "Manufacturer Part": "1083",
+            "Supplier": "Adafruit",
+            "Supplier Part": "1083",
+            "link": "https://www.adafruit.com/product/1083",
+            "Contributor": "justice",
+            "spiceSymbolName": "ADAFRUIT ADS1015 BREAKOUT FOOTPRINT",
+            "puuid": "30ba300a53cd4f11a009df839f28ab21",
+            "uuid": "c6a2f7343d2d4b8fad66d4ffc5062e0f"
+          }
+        ]
+      ],
+      "updateTime": 1718039578,
+      "createTime": 1717521742,
+      "histories": [],
+      "created_at": "2024-06-04 12:22:22",
+      "updated_at": "2024-06-10 13:12:58"
+    },
+    {
+      "uuid": "0d2e60cc2a0c647097b6953d8f6d5152",
+      "puuid": "b625cee7b11ff531f6ac5e32a214268b",
+      "title": "PCB_Inverted Pendulum Circuit PCB",
+      "filename": "PCB_Inverted Pendulum Circuit PCB.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "88fb720695fd448c8bd982f40c5d8aad": 1,
+        "b7b7ac8cf2fe4f3b8bf1e58e78d36850": 1,
+        "02a8f5332a0a45afbb01aa5ea53f5027": 2,
+        "e626fd9f488c475a91dd8fdafc2444d9": 6,
+        "2b3335a937a249d49cfdbb3a231ac65e": 1,
+        "bfb4e15ef55544a49a0bb17babf238b0": 1,
+        "30ba300a53cd4f11a009df839f28ab21": 1,
+        "5905db98cde4487fbb177070aa85bbe1": 13,
+        "8c85382f2ff643128215879405abe567": 5,
+        "ea82fbe34d7840de9fdcf3145ab199ef": 2,
+        "9aeb8608a11141cd8f0b7c972e9c8075": 1,
+        "557c105168d444a992e25584f55bcbb2": 4,
+        "bec79a4ea65a4f65ba290a03b598a762": 1
+      },
+      "BOM": [],
+      "updateTime": 1717691964,
+      "createTime": 1717534125,
+      "histories": [],
+      "created_at": "2024-06-04 15:48:45",
+      "updated_at": "2024-06-06 11:39:24"
+    },
+    {
+      "uuid": "86e776ec0ce8c98ebd4fee00f3677828",
+      "puuid": "b625cee7b11ff531f6ac5e32a214268b",
+      "title": "PCB_Inverted Pendulum Circuit PCB_2",
+      "filename": "PCB_Inverted Pendulum Circuit PCB_2.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "bec79a4ea65a4f65ba290a03b598a762": 1,
+        "5905db98cde4487fbb177070aa85bbe1": 13,
+        "2b3335a937a249d49cfdbb3a231ac65e": 1,
+        "30ba300a53cd4f11a009df839f28ab21": 1,
+        "8c85382f2ff643128215879405abe567": 5,
+        "557c105168d444a992e25584f55bcbb2": 4,
+        "e626fd9f488c475a91dd8fdafc2444d9": 6,
+        "e86d43893d914130bd34765c00ed5f63": 1,
+        "282f7786cb6144d097ae00194c3e3fb3": 4,
+        "70aa5812f21f4991bf427395d51849f4": 1,
+        "108969f8d9834a9ea23bcec2d43a66e4": 1,
+        "df3ca37cb13d499cb713e9aa6fdd0c7b": 1,
+        "19c77e72422b43b59c26b9fa67af5de4": 1,
+        "ea82fbe34d7840de9fdcf3145ab199ef": 2
+      },
+      "BOM": [],
+      "updateTime": 1718044754,
+      "createTime": 1717619363,
+      "histories": [],
+      "created_at": "2024-06-05 15:29:23",
+      "updated_at": "2024-06-10 14:39:14"
+    },
+    {
+      "uuid": "4aa029ecc33397a03a5afafc1245989a",
+      "puuid": "b625cee7b11ff531f6ac5e32a214268b",
+      "title": "PCB_Inverted Pendulum Circuit TEST 3",
+      "filename": "PCB_Inverted Pendulum Circuit TEST 3.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "ea82fbe34d7840de9fdcf3145ab199ef": 2,
+        "bec79a4ea65a4f65ba290a03b598a762": 1,
+        "5905db98cde4487fbb177070aa85bbe1": 13,
+        "2b3335a937a249d49cfdbb3a231ac65e": 1,
+        "30ba300a53cd4f11a009df839f28ab21": 1,
+        "8c85382f2ff643128215879405abe567": 5,
+        "557c105168d444a992e25584f55bcbb2": 4,
+        "e626fd9f488c475a91dd8fdafc2444d9": 6,
+        "e86d43893d914130bd34765c00ed5f63": 1,
+        "282f7786cb6144d097ae00194c3e3fb3": 4,
+        "70aa5812f21f4991bf427395d51849f4": 1,
+        "108969f8d9834a9ea23bcec2d43a66e4": 1,
+        "df3ca37cb13d499cb713e9aa6fdd0c7b": 1,
+        "19c77e72422b43b59c26b9fa67af5de4": 1
+      },
+      "BOM": [],
+      "updateTime": 1718211387,
+      "createTime": 1717786733,
+      "histories": [],
+      "created_at": "2024-06-07 13:58:53",
+      "updated_at": "2024-06-12 12:56:27"
+    }
+  ],
+  "sort": [],
+  "title": "Inverted Pendulum Circuit PCB",
+  "foldername": "Inverted Pendulum Circuit PCB",
+  "schfilename": "Inverted Pendulum Circuit PCB.json",
+  "schfilemtime": 1718039578966
+}

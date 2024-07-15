@@ -8,13 +8,13 @@
 //////// VARIABLES AND DECLARATIONS ////////
 
 // Gyro Potentiometer Data Points
-float f0 = 1845.78, f1 = 969.50, f2 = 53.46, g0 = 30, g1 = 0, g2 = -30;
+float f0 = 1819.14, f1 = 948.08, f2 = 39.28, g0 = 30, g1 = 0, g2 = -30;
 // Position Potentiometer Data Points
-float a0 = 1677, a1 = 942, a2 = 209, b0 = 100, b1 = 0, b2 = -100;
+float a0 = 1653, a1 = 930, a2 = 202, b0 = 100, b1 = 0, b2 = -100;
 // Gyro Potentiometer PWM Data Points
-float z0 = 1845.78, z1 = 969.50, z2 = 53.46, w0 = 199, w1 = 127.5, w2 = 0;
+float z0 = 1819.14, z1 = 948.08, z2 = 39.28, w0 = 199, w1 = 127.5, w2 = 0;
 // Position Potentiometer PWM Data Points
-float c0 = 1677, c1 = 942, c2 = 209, d0 = 199, d1 = 127.5, d2 = 0;
+float c0 = 1653, c1 = 930, c2 = 202, d0 = 199, d1 = 127.5, d2 = 0;
 // Online Calibration; Left, Middle, Right Button Pins
 int leftPos = 3, middlePos = 4, rightPos = 5, index = 0;
 // Data Pool size for calibration
@@ -256,7 +256,7 @@ void loop() {
 
   // ADS1015 ADC reading for Position Potentiometer
   readADC_Pos();
-  // float posVolt = ads1015.computeVolts(posADC);
+  float posVolt = ads1015.computeVolts(posADC);
 
   // Calculate angle reading for Gyro Potentiometer using 3 point interpolation
   float gyrAngle = intpolCalibration(gyrADC, f0, f1, f2, g0, g1, g2);
@@ -272,7 +272,7 @@ void loop() {
   // Serial.print("Angle: ");
   Serial.println(gyrAngle);
   // Serial.print("Position ADC: ");
-  // Serial.print(posADC);
+  // Serial.println(posADC);
   // Serial.print(", ");
   // Serial.print("Distance: ");
   Serial.println(posDist);

@@ -284,6 +284,7 @@ void loop() {
 
   double output = Kp*error + Ki*cumError + Kd*rateError;     // calculate the PID output
   output = constrain(output, -255, 255);
+  motor2.drive(output);
 
   lastError = error;                                    // store previous error
   previousTime = currentTime; 
@@ -299,13 +300,16 @@ void loop() {
   outputP = constrain(outputP, -255, 255);
   outputP *= -1;
   
-
   lastErrorP = errorP;                                    // store previous error
   previousTimeP = currentTimeP; 
-
-  Output = output + outputP;
-  Serial.println(Output);
-  motor2.drive(Output);
+  
+  // motor2.drive(Output);
+  // Serial.print("Angle PID: ");
+  // Serial.println(output);
+  // Serial.print("Position PID: ");
+  // Serial.println(outputP);
+  // Serial.print("Control Signal: ");
+  // Serial.println(Output);
   
 
   // Serial.println(pwmValue);
@@ -340,7 +344,7 @@ void loop() {
   // }
 
   // Delay read cycle by 1000 milliseconds
-  delay(100);
+  delay(10);
 
 }
 

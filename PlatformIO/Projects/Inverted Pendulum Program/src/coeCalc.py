@@ -28,7 +28,39 @@ import time
 #             # Write back to serial monitor
 #             arduino.write(f"{interpolateVal}\n".encode('utf-8'))
 #             print(f"ADC Value: {x}, Angle: {interpolateVal}")
-            
 
+
+# TIMER INFORMATION FOR ARDUINO SCRIPT
+#   // // FAST PWM 
+#   // // Clear Timer1 control registers
+#   // TCCR1A = 0;
+#   // TCCR1B = 0;
+
+#   // // Set Timer1 to Fast PWM mode with ICR1 as top value
+#   // TCCR1A |= (1 << WGM11);
+#   // TCCR1B |= (1 << WGM12) | (1 << WGM13);
+
+#   // // Set non-inverting mode for PWM on OC1A (Pin 9)
+#   // TCCR1A |= (1 << COM1A1);
+
+#   // // Set the prescaler to 8 and start the timer
+#   // TCCR1B |= (1 << CS11);
+
+#   // // Set the PWM frequency by setting the ICR1 value
+#   // ICR1 = 199;  // This sets the frequency to 10kHz
+
+#   // // Set the initial duty cycle
+#   // OCR1A = 0; 
+            
+#   //////// ARDUINO & PYTHON COMMUNICATION ////////
+
+#   // // Check if the serial monitor contains any data from python
+#   // if (Serial.available() > 0) { 
+#   //   // Parse information from python
+#   //   int interpolateVal = Serial.parseFloat(); 
+#   //   // Output information back to the serial monitor 
+#   //   Serial.print("Modified Value: ");
+#   //   Serial.println(interpolateVal);
+#   // }
 
 
